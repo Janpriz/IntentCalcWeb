@@ -18,9 +18,15 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.Navigation
+import androidx.navigation.compose.rememberNavController
+import com.dang.intentcalcweb1boswo.navigation.ROUTE_CALC
+import com.dang.intentcalcweb1boswo.navigation.ROUTE_INTENT
+import com.dang.intentcalcweb1boswo.navigation.ROUTE_WEB
 
 @Composable
-fun Home_Screen(modifier: Modifier = Modifier) {
+fun Home_Screen(navcontroller: NavHostController) {
     Column(
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -36,7 +42,7 @@ fun Home_Screen(modifier: Modifier = Modifier) {
         )
         Spacer(modifier = Modifier.height(50.dp))
         Button(
-            onClick = { /*TODO*/ },
+            onClick = { navcontroller.navigate(ROUTE_INTENT)},
             modifier = Modifier.width(300.dp)
         ) {
             Text(
@@ -47,7 +53,7 @@ fun Home_Screen(modifier: Modifier = Modifier) {
             )}
             Spacer(modifier = Modifier.height(50.dp))
             Button(
-                onClick = { /*TODO*/ },
+                onClick = {navcontroller.navigate(ROUTE_CALC)},
                 modifier = Modifier.width(300.dp)
             ) {
                 Text(
@@ -58,7 +64,7 @@ fun Home_Screen(modifier: Modifier = Modifier) {
                 )}
                 Spacer(modifier = Modifier.height(50.dp))
                 Button(
-                    onClick = { /*TODO*/ },
+                    onClick = { navcontroller.navigate(ROUTE_WEB)},
                     modifier = Modifier.width(300.dp)
                 ) {
                     Text(
@@ -77,6 +83,6 @@ fun Home_Screen(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun Homepre() {
-    Home_Screen()
+    Home_Screen(rememberNavController())
 
 }
