@@ -126,7 +126,7 @@ fun Intent_Screen(navcontroller: NavHostController) {
         Spacer(modifier = Modifier.height(20.dp))
 
         OutlinedButton(
-            onClick = { val phone = "+34666777888"
+            onClick = { val phone = "0720176900"
 
                 val intent = Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null))
 
@@ -162,13 +162,14 @@ fun Intent_Screen(navcontroller: NavHostController) {
         Spacer(modifier = Modifier.height(20.dp))
 
         OutlinedButton(
-            onClick = { /* TODO */ },
+            onClick = {
+            },
             modifier = Modifier.width(200.dp),
             colors = ButtonDefaults.buttonColors(Color.Magenta),
             shape = RoundedCornerShape(16.dp)
         ) {
             Text(
-                text = "EMOJI",
+                text = "Email",
                 fontSize = 30.sp
             )
         }
@@ -188,6 +189,27 @@ fun Intent_Screen(navcontroller: NavHostController) {
         ) {
             Text(
                 text = "STK",
+                fontSize = 30.sp
+            )
+        }
+        Spacer(modifier = Modifier.height(20.dp))
+
+        OutlinedButton(
+            onClick = {
+                val emailIntent = Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                    "mailto",
+                    "damianbwire88@gmail.com",
+                    null
+                ))
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject")
+                context.startActivity(emailIntent)
+            },
+            modifier = Modifier.width(200.dp),
+            colors = ButtonDefaults.buttonColors(Color.Magenta),
+            shape = RoundedCornerShape(16.dp)
+        ) {
+            Text(
+                text = "Email",
                 fontSize = 30.sp
             )
         }
